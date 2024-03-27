@@ -1,7 +1,7 @@
 ## Introduction
 In this project, I explored how Neo4j can address complex, enterprise-scale challenges, particularly in the financial sector where managing and analyzing data is crucial. Traditional databases often fall short when dealing with complex queries involving multiple entities and relationships. Neo4j's graph database framework shines in these scenarios, maintaining high performance where others struggle.
 
-## Identifying the Business Problem:
+## Identifying the Business Problem
 The main challenge in the financial sector involves handling queries that traditional relational databases can't efficiently process, like tracking stock ownership and analyzing mutual fund performance. This issue necessitates a more adept database solution capable of managing highly connected data.
 
 ## Why Neo4j?
