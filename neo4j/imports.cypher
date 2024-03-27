@@ -37,13 +37,13 @@ CALL apoc.periodic.iterate(
   "CREATE (n:DayClose {ticker: row.ticker, date: row.date, close: row.close, volume: row.volume, open: row.open, high: row.high, low: row.low})",
   {batchSize:10000, parallel:true}
 );
-// Step 2: Create relationships between daily close data and stocks
+// Create relationships between daily close data and stocks
 CALL apoc.periodic.iterate(
 "MATCH (s:Stock), (dc:DayClose) WHERE s.ticker = dc.ticker RETURN s, dc",
 "CREATE (s)-[:DAILY_CLOSE {date: dc.date}]->(dc)",
 {batchSize:10000, parallel:true});
 
-// Step 3: Create relationships between daily close data and funds
+// Create relationships between daily close data and funds
 CALL apoc.periodic.iterate(
 "MATCH (f:Fund), (dc:DayClose) WHERE f.ticker = dc.ticker RETURN f, dc",
 "CREATE (f)-[:DAILY_CLOSE {date: dc.date}]->(dc)",
